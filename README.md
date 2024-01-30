@@ -12,8 +12,8 @@ In this assignment, you'll implement Prim's algorithm, a non-trivial greedy algo
 
 * [TODO] Add more assertions to the `check_mst` function in `test/test_mst.py`.
 * [TODO] Write at least one more unit test (in the `test_mst.py` file) for your `construct_mst` implementation. (Two unit tests have already been provided: the first operates on a small graph of four nodes, and the second on a larger graph of 140 single cells, projected onto a lower dimensional subspace.)
-* [TODO] Make your package `pip` installable. (Refer to prevous assignments for more in-depth information.)
-* [TODO] Automate testing with `pytest` and GitHub Actions, and add a status badge to this README file. (Refer to previous assignments for more in-depth information.)
+* [Optional] Make your package `pip` installable. (Refer to prevous assignments for more in-depth information.)
+* [Optional] Automate testing with `pytest` and GitHub Actions, and add a status badge to this README file. (Refer to previous assignments for more in-depth information.)
 
 ## Getting started
 
@@ -42,9 +42,13 @@ Push your code to GitHub with passing unit tests, and submit a link to your repo
 
 ### Unit tests (3 points)
 
-* Added additional checks in `check_mst` to ensure correctness of your implementation (2)
-* Added effective unit tests (1)
+* Complete function "check_mst" (1)
+* Write at least two unit tests for MST construction (2)
 
 ### Style (1 points)
 
-* Readable code with clear comments and method descriptions
+* Readable code with clear comments and method descriptions (1)
+
+### Extra credit (0.5)
+
+* Github actions/workflow (0.5)
