@@ -29,7 +29,7 @@ We also strongly recommend you use the built-in [heapq](https://docs.python.org/
 
 ## Completing the assignment
 
-Push your code to GitHub with passing unit tests, and submit a link to your repository through Google Classroom.
+Push your code to GitHub with passing unit tests, and submit a link to your repository through this [google form link](https://forms.gle/guyuWE6hsTiz34WTA)
 
 ## Grading
 
