@@ -67,8 +67,52 @@ def test_mst_single_cell_data():
 
 def test_mst_student():
     """
-    
-    TODO: Write at least one unit test for MST construction.
-    
+    Tests the functionality of the `construct_mst` method within the `Graph` class to ensure it correctly constructs
+    a Minimum Spanning Tree (MST) from a given adjacency matrix of an undirected graph.
+
+    The test performs the following checks:
+    1. Verifies that the total number of edges in the MST is exactly one less than the number of vertices, 
+       which is a characteristic property of an MST in a connected graph.
+    2. Ensures that the MST is fully connected, meaning there should be no isolated vertices.
+
+    The test uses a predefined adjacency matrix representing a simple graph with three vertices and three edges.
+    After constructing the MST using the `construct_mst` method, it examines the resulting MST to confirm
+    it meets the expected properties of an MST.
+
+    The function does not return anything but uses assertions to validate the MST's properties.
     """
-    pass
+
+    # Define a simple adjacency matrix for testing
+    adj_matrix = np.array([
+        [0, 1, 3],  # Edge weights from the first vertex to others
+        [1, 0, 1],  # Edge weights from the second vertex to others
+        [3, 1, 0]   # Edge weights from the third vertex to others
+    ])
+
+    # Initialize the Graph with the test adjacency matrix and construct the MST
+    g = Graph(adj_matrix)
+    g.construct_mst()
+    mst = g.mst
+
+    # Initialize a variable to count the total number of edges in the MST
+    total = 0
+
+    # Flag to check if the MST is fully connected
+    connect = True
+
+    # Loop through each row of the MST adjacency matrix to count edges and check connectivity
+    for i in range(mst.shape[0]):
+        # Count the number of non-zero elements in the upper triangle including the diagonal
+        # to avoid counting edges twice in this undirected graph representation
+        total += len(np.nonzero(mst[i][:i+1])[0])
+
+        # Check if the current vertex is connected to any other vertex
+        add = len(np.nonzero(mst[i])[0])
+        if not add:
+            connect = False  # If a vertex is not connected, mark the MST as not fully connected
+
+    # Assert that the total number of edges in the MST is exactly one less than the number of vertices
+    assert total == mst.shape[0] - 1, 'Proposed MST has incorrect number of edges'
+
+    # Assert that the MST is fully connected with no isolated vertices
+    assert connect, 'Proposed MST is not fully connected'
